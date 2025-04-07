@@ -22,7 +22,7 @@ jobs:
           args: --docker
         env:
           USERNAME: ${{ secrets.DOCKERHUB_LOGIN }}
-          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
           DOCKERFILE: "Dockerfile"
           IMAGE_NAME: "abhishekcha/netflix-clone"
           TAG_NAME: "v0.0.1"
