@@ -58,8 +58,12 @@ jobs:
 
 
 
+
 #      - name: Build the Docker image
 #        run: docker build . --file Dockerfile --tag abhishekcha/netflix-clone:latest
+
+
+
   
 #      - name: Docker Build & Push to Docker Hub
 #        uses: timzu/github-actions-docker@master
