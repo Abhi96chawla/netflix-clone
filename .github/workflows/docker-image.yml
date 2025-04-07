@@ -14,14 +14,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
-      - name: DockerHub Build And Push
-        uses: Abhishek-070/Dockerhub-Build-Push@v1.0
+        run: docker build . --file Dockerfile --tag abhishekcha/netflix-clone:latest
+  
+      - name: Docker Build & Push to Docker Hub
+        uses: timzu/github-actions-docker@master
         with:
-          registry_url: 'docker.io'
-          repository_name: 'netflix-clone'
-          user_name: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          image_version: 'v1.0'
-          docker_file: '.'
+          args: --docker
+        env:
+          USERNAME: ${{ secrets.DOCKERHUB_LOGIN }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERFILE: "Dockerfile"
+          IMAGE_NAME: "abhishekcha/netflix-clone"
+          TAG_NAME: "v0.0.1"
+          LATEST: "true"
